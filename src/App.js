@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Routes } from "react-router-dom";
+import Users from "./pages/Users/Users";
+import React from "react";
+import Home from "./pages/Home";
+import Places from "./pages/Places/Places";
+import Authenticate from "./pages/Users/Auth";
+import NewPlace from "./pages/Places/NewPlace";
+import UpdatePlace from "./pages/Places/UpdatePlace";
+import ErrorPage from "./pages/ErrorPage";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Home />} errorElement={<ErrorPage />} >
+      <Route errorElement={<ErrorPage />} >
+        <Route index element={<Users />} />
+        <Route path="/:uid/places" element={<Places />} />
+        <Route path="/auth" element={<Authenticate />} />
+        <Route path="/places/new" element={<NewPlace />} />
+        <Route path="/places/:pid" element={<UpdatePlace />} />
+      </Route>
+    </Route>
+  )
+);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
   );
 }
 
