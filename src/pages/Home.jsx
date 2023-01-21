@@ -10,8 +10,8 @@ export default function Home() {
                 <li><Link to="/"> Home </Link> </li>
                 <li><Link to="/auth"> Auth </Link> </li>
                 <li><Link to="/places/new"> NewPlace </Link> </li>
-                <li><Link to="/"> Places </Link> </li>
-                <li><Link to="/"> Edit </Link> </li>
+                <li><Link to="/u1/places"> Places </Link> </li>
+                <li><Link to="/places/p1"> Edit </Link> </li>
             </ul>
         </nav>
 

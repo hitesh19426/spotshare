@@ -1,5 +1,12 @@
 import "./App.css";
-import { BrowserRouter, createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+  Routes,
+} from "react-router-dom";
 import Users from "./pages/Users/Users";
 import React from "react";
 import Home from "./pages/Home";
@@ -11,8 +18,8 @@ import ErrorPage from "./pages/ErrorPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Home />} errorElement={<ErrorPage />} >
-      <Route errorElement={<ErrorPage />} >
+    <Route path="/" element={<Home />} errorElement={<ErrorPage />}>
+      <Route errorElement={<ErrorPage />}>
         <Route index element={<Users />} />
         <Route path="/:uid/places" element={<Places />} />
         <Route path="/auth" element={<Authenticate />} />
@@ -25,9 +32,22 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
+    <RouterProvider router={router} />
+
+    // alternative way
+    // <BrowserRouter>
+    //   <Routes>
+    //     <Route path="/" element={<Home />} errorElement={<ErrorPage />}>
+    //       <Route errorElement={<ErrorPage />}>
+    //         <Route index element={<Users />} />
+    //         <Route path="/:uid/places" element={<Places />} />
+    //         <Route path="/auth" element={<Authenticate />} />
+    //         <Route path="/places/new" element={<NewPlace />} />
+    //         <Route path="/places/:pid" element={<UpdatePlace />} />
+    //       </Route>
+    //     </Route>
+    //   </Routes>
+    // </BrowserRouter>
   );
 }
 
