@@ -1,12 +1,11 @@
 import React from 'react'
-import { Link, NavLink, Outlet } from 'react-router-dom'
-
+import {Link, NavLink, Outlet } from 'react-router-dom'
 
 function NavBar() {
     return (
-        <nav className="navbar navbar-expand-md bg-light" data-bs-theme="dark">
+        <nav className="navbar navbar-expand-md bg-primary" data-bs-theme="dark">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">SpotShare</a>
+                <Link className="navbar-brand" to="/">SpotShare</Link>
                 <button className="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -28,17 +27,6 @@ export default function Home() {
     return (
         <div>
             <NavBar />
-
-            {/* <nav>
-                <ul>
-                    <li><Link to="/"> Home </Link> </li>
-                    <li><Link to="/auth"> Auth </Link> </li>
-                    <li><Link to="/places/new"> NewPlace </Link> </li>
-                    <li><Link to="/u1/places"> Places </Link> </li>
-                    <li><Link to="/places/p1"> Edit </Link> </li>
-                </ul>
-            </nav> */}
-
             <Outlet />
         </div>
     )
