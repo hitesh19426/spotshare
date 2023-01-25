@@ -28,14 +28,15 @@ export default function Places(props) {
   const {uid} = useParams();
   const [places, setPlaces] = useState(null);
 
-  console.log(places);
-
+  // TOCHECK: Why [props, uid] is used -> what is does?
   useEffect(() => {
     const resp = props.getPlaces(uid);
     console.log(resp);
     setPlaces(resp);
-  }, []);
+  }, [props, uid]);
 
+
+  // TODO: Show this as a message/alert in the center of the screen.
   if (places === null) {
     return <div className="d-flex align-items-center">
       <div className="alert alert-warning" role="alert">
@@ -45,6 +46,8 @@ export default function Places(props) {
     </div>
   }
 
+  
+  // TODO: Show this as a message/alert in the center of the screen.
   if (places.length === 0) {
     return <div className="d-flex align-items-center">
       <div className="alert alert-warning" role="alert">

@@ -14,15 +14,15 @@ import UpdatePlace from "./pages/Places/UpdatePlace";
 import ErrorPage from "./pages/ErrorPage";
 import {USERS} from "./DUMMY_DATA"
 
+function getPlaces(uid){
+  // TODO: When you make apis, then you would not need USERS, so you would be able to extract out getPlaces into services
+  const user = USERS.find(user => user["id"] === uid);
+  if(user === undefined)
+    return null;
+  return user["places"];
+}
+
 function App() {
-
-  function getPlaces(uid){
-    const user = USERS.find(user => user["id"] === uid);
-    if(user === undefined)
-      return null;
-    return user["places"];
-  }
-
   return (
     <BrowserRouter>
       <Routes>

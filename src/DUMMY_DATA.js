@@ -1,3 +1,4 @@
+// TODO: Add more actual places instead of using same page.
 export const PLACES = {
   p1: {
     title: "Empire State Building",
