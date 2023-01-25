@@ -12,17 +12,16 @@ import Authenticate from "./pages/Users/Auth";
 import NewPlace from "./pages/Places/NewPlace";
 import UpdatePlace from "./pages/Places/UpdatePlace";
 import ErrorPage from "./pages/ErrorPage";
-
-const USERS = [
-  {id: 'u1', name: 'User 1', image: 'https://i.pravatar.cc/150?img=32', placeCount: 2},
-  {id: 'u2', name: 'User 2', image: 'https://i.pravatar.cc/150?img=2', placeCount: 4},
-  {id: 'u3', name: 'User 3', image: 'https://i.pravatar.cc/150?img=11', placeCount: 3},
-  {id: 'u4', name: 'User 4', image: 'https://i.pravatar.cc/150?img=4', placeCount: 1},
-  {id: 'u5', name: 'User 5', image: 'https://i.pravatar.cc/150?img=16', placeCount: 0},
-  {id: 'u6', name: 'User 6', image: 'https://i.pravatar.cc/150?img=37', placeCount: 0},
-]
+import {USERS} from "./DUMMY_DATA"
 
 function App() {
+
+  function getPlaces(uid){
+    const user = USERS.find(user => user["id"] === uid);
+    if(user === undefined)
+      return null;
+    return user["places"];
+  }
 
   return (
     <BrowserRouter>
@@ -30,7 +29,7 @@ function App() {
         <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
           <Route errorElement={<ErrorPage />}>
             <Route index element={<Users users={USERS}/>} />
-            <Route path="/:uid/places" element={<Places />} />
+            <Route path="/:uid/places" element={<Places getPlaces={getPlaces} />} />
             <Route path="/auth" element={<Authenticate />} />
             <Route path="/places/new" element={<NewPlace />} />
             <Route path="/places/:pid" element={<UpdatePlace />} />
