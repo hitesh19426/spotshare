@@ -3,6 +3,7 @@ import {Link, NavLink, Outlet } from 'react-router-dom'
 
 function NavBar() {
     return (
+        // TODO: Fix the navbar toggler button
         <nav className="navbar navbar-expand-md bg-primary" data-bs-theme="dark">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">SpotShare</Link>
