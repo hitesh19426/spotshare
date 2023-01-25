@@ -26,14 +26,15 @@ function Place(props) {
 
 export default function Places(props) {
   const {uid} = useParams();
+  const {getPlaces} = props;
   const [places, setPlaces] = useState(null);
 
   // TOCHECK: Why [props, uid] is used -> what is does?
   useEffect(() => {
-    const resp = props.getPlaces(uid);
-    console.log(resp);
+    const resp = getPlaces(uid);
+    // console.log(resp);
     setPlaces(resp);
-  }, [props, uid]);
+  }, [getPlaces, uid]);
 
 
   // TODO: Show this as a message/alert in the center of the screen.
