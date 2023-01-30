@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import React, { useState } from 'react'
+import React from 'react'
 import './NewPlace.css'
 
 const validate = values => {
@@ -49,9 +49,7 @@ function FormikForm(props) {
           <input id="title"
             name="title"
             type="text"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.title}
+            {...formik.getFieldProps("title")}
             className={`form-control ${formik.touched.title ? (formik.errors.title ? 'is-invalid' : 'is-valid') : null}`}
             required
           />
@@ -71,9 +69,7 @@ function FormikForm(props) {
           <input id="description"
             name="description"
             type="textarea"
-            onChange={formik.handleChange}
-            value={formik.values.description}
-            onBlur={formik.handleBlur}
+            {...formik.getFieldProps("description")}
             className={`form-control ${formik.touched.description ? (formik.errors.description ? 'is-invalid' : 'is-valid') : null}`}
             required
           />
@@ -94,9 +90,7 @@ function FormikForm(props) {
             id="address"
             name="address"
             type="text"
-            onChange={formik.handleChange}
-            value={formik.values.address}
-            onBlur={formik.handleBlur}
+            {...formik.getFieldProps("address")}
             className={`form-control ${formik.touched.address ? (formik.errors.address ? 'is-invalid' : 'is-valid') : null}`}
             required
           />
@@ -122,65 +116,9 @@ function FormikForm(props) {
 }
 
 export default function NewPlace() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("")
-  const [address, setAddress] = useState("")
-
-  function handleTitleChange(event) {
-    setTitle(event.target.value);
-  }
-  function handleDescriptionChange(event) {
-    setDescription(event.target.value);
-  }
-  function handleAddressChange(event) {
-    setAddress(event.target.value);
-  }
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log(title, description, address);
-  }
-
-
   return (
     <>
       <FormikForm />
-
-      <form className="was-validated" onSubmit={handleSubmit}>
-
-        <div className="col-md-4 ms-5 mt-3">
-          <label htmlFor="title" className="form-label"> Title </label>
-          <input type="text" className="form-control" id="title" value={title} onChange={handleTitleChange} required />
-          <div className="valid-feedback">
-            Looks good!
-          </div>
-          <div className="invalid-feedback">
-            Please provide a valid title.
-          </div>
-        </div>
-
-        <div className="col-md-4 ms-5 mt-3">
-          <label htmlFor="description" className="form-label"> Description </label>
-          <input type="textarea" className="form-control" id="description" value={description} onChange={handleDescriptionChange} required />
-          <div className="valid-feedback">
-            Looks good!
-          </div>
-          <div className="invalid-feedback">
-            Please provide a valid description.
-          </div>
-        </div>
-
-        <div className="col-md-4 ms-5 mt-3">
-          <label htmlFor="address" className="form-label"> Address </label>
-          <input type="text" className="form-control" id="address" value={address} onChange={handleAddressChange} required />
-          <div className="invalid-feedback">
-            Please provide a valid city.
-          </div>
-        </div>
-
-        <div className="col-12 ms-5 mt-3">
-          <button className="btn btn-primary" type="submit">Submit form</button>
-        </div>
-      </form>
     </>
   )
 }
