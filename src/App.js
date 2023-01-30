@@ -17,9 +17,7 @@ import {USERS} from "./DUMMY_DATA"
 function getPlaces(uid){
   // TODO: When you make apis, then you would not need USERS, so you would be able to extract out getPlaces into services
   const user = USERS.find(user => user["id"] === uid);
-  if(user === undefined)
-    return null;
-  return user["places"];
+  return (user === undefined ? null : user["places"]);
 }
 
 function App() {
