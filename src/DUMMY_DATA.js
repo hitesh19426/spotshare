@@ -1,6 +1,7 @@
 // TODO: Add more actual places instead of using same page.
 export const PLACES = {
   p1: {
+    id: 'p1',
     title: "Empire State Building",
     description: "One of the most famous sky scrapers in the world!",
     address: "20 W 34th St, New York, NY 10001",
@@ -9,6 +10,7 @@ export const PLACES = {
       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg",
   },
   p2: {
+    id: 'p2',
     title: "Empire State Building",
     description: "One of the most famous sky scrapers in the world!",
     address: "20 W 34th St, New York, NY 10001",
@@ -17,6 +19,7 @@ export const PLACES = {
       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg",
   },
   p3: {
+    id: 'p3',
     title: "Empire State Building",
     description: "One of the most famous sky scrapers in the world!",
     address: "20 W 34th St, New York, NY 10001",
@@ -25,6 +28,7 @@ export const PLACES = {
       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg",
   },
   p4: {
+    id: 'p4',
     title: "Empire State Building",
     description: "One of the most famous sky scrapers in the world!",
     address: "20 W 34th St, New York, NY 10001",
@@ -33,6 +37,7 @@ export const PLACES = {
       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg",
   },
   p5: {
+    id: 'p5',
     title: "Empire State Building",
     description: "One of the most famous sky scrapers in the world!",
     address: "20 W 34th St, New York, NY 10001",
@@ -41,6 +46,7 @@ export const PLACES = {
       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg",
   },
   p6: {
+    id: 'p6',
     title: "Empire State Building",
     description: "One of the most famous sky scrapers in the world!",
     address: "20 W 34th St, New York, NY 10001",
@@ -49,6 +55,7 @@ export const PLACES = {
       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg",
   },
   p7: {
+    id: 'p7',
     title: "Empire State Building",
     description: "One of the most famous sky scrapers in the world!",
     address: "20 W 34th St, New York, NY 10001",
@@ -57,6 +64,7 @@ export const PLACES = {
       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg",
   },
   p8: {
+    id: 'p8',
     title: "Empire State Building",
     description: "One of the most famous sky scrapers in the world!",
     address: "20 W 34th St, New York, NY 10001",

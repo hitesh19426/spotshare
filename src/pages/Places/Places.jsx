@@ -6,19 +6,19 @@ import './Places.css'
 
 function MyModal(props) {
   return (
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
+          <div className="modal-body">
             Sorry but I dont have a credit card to set it up.
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+          <div className="modal-footer">
+            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" className="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
@@ -35,8 +35,8 @@ function Place(props) {
           <h4 className="card-title"> {props.title} </h4>
           <h5 className="card-title"> {props.address} </h5>
           <p className="card-text"> {props.description} </p>
-          <div class="navbar">
-            <button type="button" class="btn btn-success me-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <div className="navbar">
+            <button type="button" className="btn btn-success me-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
               View on Map
             </button>
 
@@ -87,8 +87,8 @@ export default function Places(props) {
   }
 
   return (
-    <div class="row row-cols-1 row-cols-md-1 g-4 mx-5">
-      {places.map(place => <Place title={place.title} description={place.description} address={place.address} location={place.location} imageUrl={place.imageUrl} />)}
+    <div className="row row-cols-1 row-cols-md-1 g-4 mx-5">
+      {places.map(place => <Place key={place.id} title={place.title} description={place.description} address={place.address} location={place.location} imageUrl={place.imageUrl} />)}
     </div>
   )
 }
