@@ -1,10 +1,10 @@
-import { Form, Formik } from 'formik'
 import React, { useCallback, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import {loginFormValidator} from '../../components/Places/helper'
+import { Form, Formik } from 'formik'
+
+import {loginFormValidator} from '../../components/Places/validators'
 import MyTextInput from '../../components/Places/MyTextInput'
 import { AuthContext } from '../../components/Users/AuthContext'
-import './Login.css'
 
 export default function Login() {
   // Showing login page by default

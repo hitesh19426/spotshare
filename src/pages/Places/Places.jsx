@@ -1,9 +1,7 @@
-import React, { useContext, useState } from 'react'
-import { useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { AuthContext } from '../../components/Users/AuthContext';
 
-import './Places.css'
+import { AuthContext } from '../../components/Users/AuthContext';
 
 function MyModal(props) {
   console.log("props = ", props);

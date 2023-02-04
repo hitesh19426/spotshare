@@ -1,8 +1,8 @@
-import { Form, Formik } from 'formik';
 import React from 'react'
-import './NewPlace.css'
+import { Form, Formik } from 'formik';
+
 import MyTextInput from '../../components/Places/MyTextInput';
-import placeValidator from '../../components/Places/helper';
+import placeValidator from '../../components/Places/validators';
 
 function FormikForm(props) {
   const handleSubmit = (values) => {

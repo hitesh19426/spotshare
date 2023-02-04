@@ -2,9 +2,8 @@ import { Form, Formik } from 'formik';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import "./UpdatePlace.css";
 import MyTextInput from '../../components/Places/MyTextInput';
-import placeValidator from '../../components/Places/helper';
+import placeValidator from '../../components/Places/validators';
 
 export default function UpdatePlace(props) {
   const {pid} = useParams();

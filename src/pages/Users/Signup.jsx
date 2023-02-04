@@ -1,7 +1,8 @@
 import { Form, Formik } from 'formik'
 import React, { useCallback, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { signupFormValidator } from '../../components/Places/helper'
+
+import { signupFormValidator } from '../../components/Places/validators'
 import MyTextInput from '../../components/Places/MyTextInput'
 import { AuthContext } from '../../components/Users/AuthContext'
 

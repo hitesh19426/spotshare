@@ -1,5 +1,6 @@
 import React, { useCallback, useContext } from 'react'
 import {Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
+
 import { AuthContext } from '../components/Users/AuthContext'
 
 function NavBar() {
