@@ -26,13 +26,21 @@ function App() {
   const [isLogedIn, setIsLoggedIn] = useState(false);
   const [userId, setUserId] = useState(null);
 
-  const login = useCallback(() => {
+  const login = useCallback(async (values) => {
+    console.log(values);
     console.log("logging user ....");
     setIsLoggedIn(true);
     setUserId("u1");
   }, []);
 
-  const logout = useCallback(() => {
+  const signup = useCallback(async (values) => {
+    console.log(values);
+    console.log("signing up user ....");
+    await login(values);
+  }, []);
+
+  const logout = useCallback(async (values) => {
+    console.log(values);
     console.log("logging out ...");
     setIsLoggedIn(false);
     setUserId(null);
@@ -45,6 +53,7 @@ function App() {
         userId: userId,
         login: login,
         logout: logout,
+        signup: signup,
       }}
     >
       <BrowserRouter>
