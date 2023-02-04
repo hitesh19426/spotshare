@@ -1,6 +1,6 @@
 import { Form, Formik } from 'formik'
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useCallback, useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { signupFormValidator } from '../../components/Places/helper'
 import MyTextInput from '../../components/Places/MyTextInput'
 import { AuthContext } from '../../components/Users/AuthContext'
@@ -8,12 +8,19 @@ import { AuthContext } from '../../components/Users/AuthContext'
 export default function Signup() {
   // Showing login page by default
   const auth = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const signup = useCallback(async (values) => {
+    console.log(values);
+    await auth.signup(values);
+    navigate("/");
+  }, [auth, navigate])
 
   return (
     <Formik
       initialValues={{ name:'', email: '', password: ''}}
       validate={signupFormValidator}
-      onSubmit={auth.signup}
+      onSubmit={signup}
     >
       <Form>
         <MyTextInput label="Name" name="name" type="text" placeholder="Enter Name" />

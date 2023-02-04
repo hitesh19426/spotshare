@@ -1,9 +1,15 @@
-import React, { useContext } from 'react'
-import {Link, NavLink, Outlet } from 'react-router-dom'
+import React, { useCallback, useContext } from 'react'
+import {Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../components/Users/AuthContext'
 
 function NavBar() {
     const authContext = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const logout = useCallback(async () => {
+        await authContext.logout();
+        navigate("/")
+    }, [])
 
     return (
         // TODO: Fix the navbar toggler button
@@ -21,7 +27,7 @@ function NavBar() {
                         {authContext.isLogedIn && <NavLink className="nav-link active" aria-current="page" to="/places/new"> Create Place </NavLink>}
                         {authContext.isLogedIn && <NavLink className="nav-link active" aria-current="page" to={`/${authContext.userId}/places`}> My Places </NavLink>}
                         {/* <NavLink className="nav-link active" aria-current="page" to="/places/p1"> Edit Place </NavLink> */}
-                        {authContext.isLogedIn && <div className="nav-link active" aria-current="page" onClick={authContext.logout}> Logout </div>}
+                        {authContext.isLogedIn && <div className="nav-link active" aria-current="page" onClick={logout}> Logout </div>}
                     </ul>
                 </div>
             </div>

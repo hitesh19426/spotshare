@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, redirect, Route, Routes, useNavigate } from "react-router-dom";
 import Users from "./pages/Users/Users";
 import React, { useCallback, useState } from "react";
 import Layout from "./pages/Layout";
@@ -29,8 +29,9 @@ function App() {
   const login = useCallback(async (values) => {
     console.log(values);
     console.log("logging user ....");
-    setIsLoggedIn(true);
+    
     setUserId("u1");
+    setIsLoggedIn(true);
   }, []);
 
   const signup = useCallback(async (values) => {
@@ -67,11 +68,11 @@ function App() {
               />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/places/new" element={<NewPlace />} />
-              <Route
+              {isLogedIn && <Route path="/places/new" element={<NewPlace />} />}
+              {isLogedIn && <Route
                 path="/places/:pid"
                 element={<UpdatePlace getPlace={getPlace} />}
-              />
+              />}
             </Route>
           </Route>
         </Routes>
