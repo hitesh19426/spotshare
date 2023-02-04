@@ -37,7 +37,7 @@ export default function UpdatePlace(props) {
         <MyTextInput label="Address" name="address" type="text" placeholder="Enter Address" />
 
         <div className="col-12 ms-5 mt-3">
-          <button type="submit"> Submit </button>
+          <button type="submit" className="btn btn-success"> Submit </button>
         </div>
       </Form>
     </Formik>

@@ -8,7 +8,7 @@ import Users from "./pages/Users/Users";
 import React from "react";
 import Layout from "./pages/Layout";
 import Places from "./pages/Places/Places";
-import Authenticate from "./pages/Users/Auth";
+import Login from "./pages/Users/Login";
 import NewPlace from "./pages/Places/NewPlace";
 import UpdatePlace from "./pages/Places/UpdatePlace";
 import ErrorPage from "./pages/ErrorPage";
@@ -32,7 +32,7 @@ function App() {
           <Route errorElement={<ErrorPage />}>
             <Route index element={<Users users={USERS}/>} />
             <Route path="/:uid/places" element={<Places getPlaces={getPlaces} />} />
-            <Route path="/auth" element={<Authenticate />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/places/new" element={<NewPlace />} />
             <Route path="/places/:pid" element={<UpdatePlace getPlace={getPlace}/>} />
           </Route>

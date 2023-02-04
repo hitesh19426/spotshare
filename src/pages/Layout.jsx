@@ -14,7 +14,7 @@ function NavBar() {
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         {/* TODO: Add coloring for active link and so on. */}
                         <NavLink className="nav-link active" aria-current="page" to="/"> Users </NavLink>
-                        <NavLink className="nav-link active" aria-current="page" to="/auth"> Auth </NavLink>
+                        <NavLink className="nav-link active" aria-current="page" to="/login"> Login </NavLink>
                         <NavLink className="nav-link active" aria-current="page" to="/places/new"> Create Place </NavLink>
                         <NavLink className="nav-link active" aria-current="page" to="/u1/places"> Places </NavLink>
                         {/* <NavLink className="nav-link active" aria-current="page" to="/places/p1"> Edit Place </NavLink> */}
