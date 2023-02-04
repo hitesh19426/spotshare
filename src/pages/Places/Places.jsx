@@ -65,7 +65,7 @@ function Place(props) {
   </div>
 }
 
-export default function Places(props) {
+export default function MyPlaces(props) {
   const {uid} = useParams();
   const {getPlaces} = props;
   const [places, setPlaces] = useState(null);

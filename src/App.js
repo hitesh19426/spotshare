@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Users from "./pages/Users/Users";
 import React, { useCallback, useState } from "react";
 import Layout from "./pages/Layout";
-import Places from "./pages/Places/Places";
+import MyPlaces from "./pages/Places/Places";
 import Login from "./pages/Users/Login";
 import NewPlace from "./pages/Places/NewPlace";
 import UpdatePlace from "./pages/Places/UpdatePlace";
@@ -52,12 +52,10 @@ function App() {
           <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
             <Route errorElement={<ErrorPage />}>
               <Route index element={<Users users={USERS} />} />
-              { isLogedIn && 
-                <Route
-                  path="/:uid/places"
-                  element={<Places getPlaces={getPlaces} />}
-                />
-              }
+              <Route
+                path="/:uid/places"
+                element={<MyPlaces getPlaces={getPlaces} />}
+              />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/places/new" element={<NewPlace />} />
