@@ -9,10 +9,6 @@ export default function Signup() {
   // Showing login page by default
   const auth = useContext(AuthContext);
 
-  const handleSubmit = (values) => {
-    console.log(values);
-  }
-
   return (
     <Formik
       initialValues={{ name:'', email: '', password: ''}}

@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom'
+import { AuthContext } from '../../components/Users/AuthContext';
 
 import './Places.css'
 
@@ -30,6 +31,9 @@ function MyModal(props) {
 }
 
 function Place(props) {
+  const auth = useContext(AuthContext)
+  console.log(auth);
+  console.log(props);
   
   function handleDelete(id){
     console.log('delete function clicked for place: ', id);
@@ -51,10 +55,10 @@ function Place(props) {
 
             {/* <MyModal name="example" title="Map Modal" description="I do not have a crediit card to set this up. Sorry :') " /> */}
 
-            <Link className="btn btn-success me-2" to={`/places/${props.place.id}`}> Edit </Link>
-            <button type="button" className="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever={props.place.id}>
+            {auth.userId === props.userId && <Link className="btn btn-success me-2" to={`/places/${props.place.id}`}> Edit </Link>}
+            {auth.userId === props.userId && <button type="button" className="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever={props.place.id}>
               Delete
-            </button>
+            </button>}
 
             <MyModal handleDelete={handleDelete} id={props.place.id}/>
 
@@ -100,7 +104,7 @@ export default function MyPlaces(props) {
 
   return (
     <div className="row row-cols-1 row-cols-md-1 g-4 mx-5">
-      {places.map(place => <Place key={place.id} place={place} />)}
+      {places.map(place => <Place key={place.id} place={place} userId={uid}/>)}
     </div>
   )
 }
