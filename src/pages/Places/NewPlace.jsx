@@ -2,14 +2,18 @@ import { Form, Formik } from 'formik';
 import React from 'react'
 import './NewPlace.css'
 import MyTextInput from '../../components/Places/MyTextInput';
-import validate from '../../components/Places/helper';
+import placeValidator from '../../components/Places/helper';
 
 function FormikForm(props) {
+  const handleSubmit = (values) => {
+    console.log(values);
+  }
+
   return (
     <Formik
       initialValues={{ title: '', description: '', address: '' }}
-      validate={validate}
-      onSubmit={(values) => console.log(values)}
+      validate={placeValidator}
+      onSubmit={handleSubmit}
     >
       <Form>
         <MyTextInput label="Title" name="title" type="text" placeholder="Enter title" />

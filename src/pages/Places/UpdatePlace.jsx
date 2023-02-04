@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import "./UpdatePlace.css";
 import MyTextInput from '../../components/Places/MyTextInput';
-import validate from '../../components/Places/helper';
+import placeValidator from '../../components/Places/helper';
 
 export default function UpdatePlace(props) {
   const {pid} = useParams();
@@ -25,11 +25,15 @@ export default function UpdatePlace(props) {
     </div>
   }
 
+  const handleSubmit = (values) => {
+    console.log(values);
+  }
+
   return (
     <Formik
       initialValues={{ title: place.title, description: place.description, address: place.address }}
-      validate={validate}
-      onSubmit={(values) => console.log(values)}
+      validate={placeValidator}
+      onSubmit={handleSubmit}
     >
       <Form>
         <MyTextInput label="Title" name="title" type="text" placeholder="Enter title" />
