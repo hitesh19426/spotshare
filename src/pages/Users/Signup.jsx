@@ -12,8 +12,7 @@ export default function Signup() {
   const navigate = useNavigate();
 
   const signup = useCallback(async (values) => {
-    console.log(values);
-    await auth.signup(values);
+    auth.signup(values);
     navigate("/");
   }, [auth, navigate])
 

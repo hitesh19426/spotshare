@@ -4,7 +4,7 @@ import { Form, Formik } from 'formik';
 import MyTextInput from '../../components/Places/MyTextInput';
 import placeValidator from '../../components/Places/validators';
 
-function FormikForm(props) {
+export default function NewPlace(props) {
   const handleSubmit = (values) => {
     console.log(values);
   }
@@ -26,11 +26,5 @@ function FormikForm(props) {
         </div>
       </Form>
     </Formik>
-  )
-}
-
-export default function NewPlace() {
-  return (
-      <FormikForm />
   )
 }

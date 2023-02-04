@@ -4,8 +4,6 @@ import { Link, useParams } from 'react-router-dom'
 import { AuthContext } from '../../components/Users/AuthContext';
 
 function MyModal(props) {
-  console.log("props = ", props);
-  
   return (
     <div className="modal fade" id="deleteModal" tabIndex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered">
@@ -30,11 +28,9 @@ function MyModal(props) {
 
 function Place(props) {
   const auth = useContext(AuthContext)
-  console.log(auth);
-  console.log(props);
   
   function handleDelete(id){
-    console.log('delete function clicked for place: ', id);
+    // console.log('delete function clicked for place: ', id);
     //TODO: Check how this is going to update my main list of places
   }
 

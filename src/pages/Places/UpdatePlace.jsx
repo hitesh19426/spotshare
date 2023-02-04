@@ -14,6 +14,10 @@ export default function UpdatePlace(props) {
     const place = getPlace(pid);
     setPlace(place);
   }, [pid, getPlace]);
+
+  const handleSubmit = (values) => {
+    console.log(values);
+  }
   
   if(place === null){
     return <div className="d-flex align-items-center">
@@ -22,10 +26,6 @@ export default function UpdatePlace(props) {
         <p>No place with the given pid exist. Please do not break my system by trying access unknown place and do something else.</p>
       </div>
     </div>
-  }
-
-  const handleSubmit = (values) => {
-    console.log(values);
   }
 
   return (

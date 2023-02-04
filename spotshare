@@ -1,0 +1,188 @@
+Full Stack Application
+
+- Create 2 routes:
+
+1. GET '/products' which returns a list of all products
+	- Return a list of all the products that you have.
+
+2. POST '/product' which do the following:
+	- Find title and price of the product
+	- If the product is valid (valid title and price), then add the product to the list of products
+
+MY OWN ROUTE:
+3. GET '/product/:id' which returns the information about the product with product ID = id
+	- Check if the product is valid, then check if it exists in the DB
+	- If it does, fetch the information and send to the user
+
+CORS Headers:
+	- 
+
+
+FRONT-END:
+
+UI:
+- Make a form at the top-half of the screen to add a product
+- Display a list of all products in the lower half
+
+React:
+- Create a function to fetch the data from the server
+- Create a function to add a product to the list of products
+
+Components:
+- Form component
+- Product Item component
+- Product Table component
+- Header
+
+
+
+
+
+Theory:
+
+We have 3 parts:
+
+Front-End: React
+Back-End: Node.js + Express.js
+DB: MongoDB
+
+The flow of data:
+FrontEnd (React) <=> Backend (Nodejs + ExpressJs) <=> Database (MongoDB)
+
+- Front End sends http request to the server, who performs some operations and return a response back.
+- Backend connects with DB to store the data for persistant storage. DB is not used for file storage. For that, you use file storage system.
+- FrontEnd does not connect to the DB because that will be exposing DB authentication to the frontend, which can be accessed by anyone. SO you only connect to the DB using Server.
+
+
+
+FrontEnd (React-JS):
+- React render everything using react components in a virtual DOM. 
+- You can do navigation in react using ract-router-dom.
+- To do state management, you have hooks (useState) and redux (react library - for application wide state management)
+- Components are styled using CSS (you can use CSS libraries also).
+
+
+BackEnd (NodeJs, ExpressJs):
+- Backend exposes certains endpoints (APIs) which can be used to perform operation on the server.
+- These APIs (endpoints) decide what you want to expose to the client (frontend).
+- These APIs can be used by anyone and not react in general. For example, you can use these APIs from postman, django, flutter (any client).
+- You can't communicate using undefined entry points (APIs), it will result in error. This way you restrict user access to the backend.
+- There are 2 major kind of APIs:
+	- REST : Uses a combination of path (/products, /product) + HTTP methods (GET, POST, DELETE, PUT, PATCH)
+	- GraphQl: Uses a single path (/graphql generally), and POST request. But you send the operation in a query of the body of the post request. So that query defines what operation you are going to perform. They are spefic rules of writing graphql queries and they can be written using nodejs also.
+
+
+FrontEnd (routes):
+
+/ - lists of users 									- always reachble
+/:uid/places - lists of places of selected users	- always reachable (convert it to only sign in -> makes more sense this way)
+/authenticate - signup + login form 				- only when not signed in
+/places/new - Add a new places						- only when sign in
+/places/:pid - Update place form 					- only when sign in
+
+
+
+
+
+
+
+Planning Process:
+
+1. Idea
+2. Design/Sketch your app (what your app look like)
+3. Build data models in the backend (DB - the data you will work with)
+4. Plan your endpoints (API, backend) and pages (SPA, Frontend)
+
+
+Step 1:
+Idea: We want to build an application that allow users to share their favourtie places (with location and pictures) with other users (visited mp but can also share not visited also).
+
+Layout/Alternative Idea - A place where you can see a list of users, click of them to view their user shared location.
+- You also have the option to add your own places.
+
+
+Step 2:
+
+FrontEnd Routes Layout:
+/ - lists of users 									- always reachable
+/:uid/places - lists of places of selected users	- always reachable
+/authenticate - signup + login form 				- only when not signed in
+/places/new - Add a new places						- only when sign in
+/places/:pid - Update place form 					- only when sign in
+
+
+Step 2:
+Draw a rough sketch of the website/webapp (like actual figma sketch without figma)
+
+
+Step 3:
+User: Name, Email, Password, Image
+Place: Title, Description, Address(human readable), Location (Latitude + Longitude), Image
+
+User can create multiple places, and every place belongs to exactly one user(?? It should be multiple user).  
+
+
+Step 4:
+Backend Routes:
+
+Route: /api/users/...
+GET .../   -> returns a list of users
+POST .../signup -> create new user + log user in
+POST .../login -> Log user in (does not involve creation)
+
+
+Route: /api/places/...
+GET .../user/:uid  		-> return list of all places for given uid
+GET .../:pid			-> return place with pid
+POST .../				-> create a new place
+PATCH .../:pid			-> update a place by id (pid)
+DELETE .../:pid			-> Delete a palce by id (pid)
+
+
+Step 5:
+Frontend Routes:
+
+Already mentioned above -> step 2.
+
+
+
+ReactJS Refresher:
+
+1. <h1 title=""> -> here you can use title to generate tooltip (helper text which shows on hover).
+
+2. You can use callback function to pass data from lower level child to higher level child.
+
+Idea: Suppose you want to add an object to a list and that list is stored in parent. Now how you can go about this is: declare a function in parent which add an object to the list, and pass it down to the child. The child will call this using the required paremeter (the obj to be added), and the task will be done.
+
+So your parent provides a method to the task to the child.
+
+3. Suppose your current state modifies prev state. Instead of directly modifying it, you a function that modifies it. This is useful because sometimes react defers direct state update when there are too many updates but this does not happen with function updates.
+
+setGoals(goals.concat(newGoal))	// might lead to deference in state
+setGoals((newGoal) => {
+	return goals.concat(newGoal);
+});
+
+// This is a function which does your task and return the list but this method does not lead to deference.
+
+
+ 
+
+Starting the project:
+
+1. Make a template and separate things into folders (components, pages, services) etc
+
+2. Setup routes
+- Make sample page components for each page (new place, edit place, users, places, auth)
+- So make home/users page and new places page
+
+3. Start with working on the users page
+- Make a userlist and useritem component (can be renamed obv)
+- Add a check for the users. If null, return "No users found".
+- If users != null, then map each user to UserItem component.
+
+4. Define and Pass the userlist to the UserList component.
+- Declare users list (temp right now) in the Users/Home component and pass it to the UserList component as prop.
+- Declare the necessary fields in the user like name, email, image, count
+
+

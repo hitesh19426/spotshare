@@ -13,12 +13,12 @@ import Signup from "./pages/Users/Signup";
 import { USERS, PLACES } from "./DUMMY_DATA";
 import { AuthContext } from "./components/Users/AuthContext";
 
-async function getPlaces(uid) {
+function getPlaces(uid) {
   // TODO: When you make apis, then you would not need USERS, so you would be able to extract out getPlaces into services
   const user = USERS.find((user) => user["id"] === uid);
   return user === undefined ? null : user["places"];
 }
-async function getPlace(pid) {
+function getPlace(pid) {
   const place = PLACES[pid];
   return place === undefined ? null : place;
 }
@@ -39,7 +39,7 @@ function App() {
     console.log(values);
     console.log("signing up user ....");
     await login(values);
-  }, []);
+  }, [login]);
 
   const logout = useCallback(async (values) => {
     console.log(values);
