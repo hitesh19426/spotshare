@@ -5,20 +5,23 @@ import { Link, useParams } from 'react-router-dom'
 import './Places.css'
 
 function MyModal(props) {
+  console.log("props = ", props);
+  
   return (
-    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div className="modal-dialog">
+    <div className="modal fade" id="deleteModal" tabIndex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+      <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header">
-            <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <h1 className="modal-title fs-5" id="deleteModalLabel"> Delete Modal </h1>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body">
-            Sorry but I dont have a credit card to set it up.
+            Are you sure you want to delete this place?
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" className="btn btn-primary">Save changes</button>
+            <button type="button" className="btn btn-danger" onClick={() => console.log('clicked')}>Delete</button>
+            {/* <button type="button" className="btn btn-danger" onClick={() => props.handleDelete(props.id)}>Delete</button> */}
           </div>
         </div>
       </div>
@@ -27,24 +30,34 @@ function MyModal(props) {
 }
 
 function Place(props) {
+  
+  function handleDelete(id){
+    console.log('delete function clicked for place: ', id);
+    //TODO: Check how this is going to update my main list of places
+  }
+
   return <div>
     <div className="container-sm mt-5" style={{ 'maxWidth': '700px' }}>
       <div className="card mb-1 mt-3 col-md-8 ">
-        <img src={`${props.imageUrl}`} className="img-fluid rounded-start" alt="..." />
+        <img src={`${props.place.imageUrl}`} className="img-fluid rounded-start" alt="..." />
         <div className="card-body">
-          <h4 className="card-title"> {props.title} </h4>
-          <h5 className="card-title"> {props.address} </h5>
-          <p className="card-text"> {props.description} </p>
+          <h4 className="card-title"> {props.place.title} </h4>
+          <h5 className="card-title"> {props.place.address} </h5>
+          <p className="card-text"> {props.place.description} </p>
           <div className="navbar">
-            <button type="button" className="btn btn-success me-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" className="btn btn-success me-auto" onClick={() => console.log('Clicked view on map button')}>
               View on Map
             </button>
 
-            <MyModal />
+            {/* <MyModal name="example" title="Map Modal" description="I do not have a crediit card to set this up. Sorry :') " /> */}
 
-            {/* <Link className="btn btn-success me-auto"> View on Map </Link> */}
-            <Link className="btn btn-success me-2"> Edit </Link>
-            <Link className="btn btn-success me-2"> Delete </Link>
+            <Link className="btn btn-success me-2" to={`/places/${props.place.id}`}> Edit </Link>
+            <button type="button" className="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever={props.place.id}>
+              Delete
+            </button>
+
+            <MyModal handleDelete={handleDelete} id={props.place.id}/>
+
           </div>
         </div>
       </div>
@@ -59,9 +72,8 @@ export default function Places(props) {
 
   // TOCHECK: Why [props, uid] is used -> what is does?
   useEffect(() => {
-    const resp = getPlaces(uid);
-    // console.log(resp);
-    setPlaces(resp);
+    const places = getPlaces(uid);
+    setPlaces(places);
   }, [getPlaces, uid]);
 
 
@@ -88,7 +100,7 @@ export default function Places(props) {
 
   return (
     <div className="row row-cols-1 row-cols-md-1 g-4 mx-5">
-      {places.map(place => <Place key={place.id} title={place.title} description={place.description} address={place.address} location={place.location} imageUrl={place.imageUrl} />)}
+      {places.map(place => <Place key={place.id} place={place} />)}
     </div>
   )
 }
