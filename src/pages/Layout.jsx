@@ -16,7 +16,7 @@ function NavBar() {
                         <NavLink className="nav-link active" aria-current="page" to="/"> Users </NavLink>
                         <NavLink className="nav-link active" aria-current="page" to="/login"> Login </NavLink>
                         <NavLink className="nav-link active" aria-current="page" to="/places/new"> Create Place </NavLink>
-                        <NavLink className="nav-link active" aria-current="page" to="/u1/places"> Places </NavLink>
+                        <NavLink className="nav-link active" aria-current="page" to="/u1/places"> My Places </NavLink>
                         {/* <NavLink className="nav-link active" aria-current="page" to="/places/p1"> Edit Place </NavLink> */}
                     </ul>
                 </div>
