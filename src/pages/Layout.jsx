@@ -19,8 +19,9 @@ function NavBar() {
                         {<NavLink className="nav-link active" aria-current="page" to="/"> Users </NavLink>}
                         {!authContext.isLogedIn && <NavLink className="nav-link active" aria-current="page" to="/login"> Login </NavLink>}
                         {authContext.isLogedIn && <NavLink className="nav-link active" aria-current="page" to="/places/new"> Create Place </NavLink>}
-                        {authContext.isLogedIn && <NavLink className="nav-link active" aria-current="page" to="/u1/places"> My Places </NavLink>}
+                        {authContext.isLogedIn && <NavLink className="nav-link active" aria-current="page" to={`/${authContext.userId}/places`}> My Places </NavLink>}
                         {/* <NavLink className="nav-link active" aria-current="page" to="/places/p1"> Edit Place </NavLink> */}
+                        {authContext.isLogedIn && <div className="nav-link active" aria-current="page" onClick={authContext.logout}> Logout </div>}
                     </ul>
                 </div>
             </div>
