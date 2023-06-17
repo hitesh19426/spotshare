@@ -35,9 +35,6 @@ Components:
 - Header
 
 
-
-
-
 Theory:
 
 We have 3 parts:
@@ -185,4 +182,157 @@ Starting the project:
 - Declare users list (temp right now) in the Users/Home component and pass it to the UserList component as prop.
 - Declare the necessary fields in the user like name, email, image, count
 
+
+
+
+BACK-END:
+
+Lecture 89:
+1. Create a nodejs project using `npm install`
+2. Install express body-parser 
+3. Install nodemon as dev
+4. Create app.js file
+
+
+Lecture 90:
+1. import express and body-parser
+2. make app use express
+3. add app listener on port
+4. Create a routes folder and add places.js and user.js for respective routes
+5. Import express in routes files also
+6. Create a router object
+7. Now you can start creating routes  (get, post, patch, delete)
+8. Export places and users routes and use them
+
+
+Lecture 91:
+1. How to use router to route
+2. Created /:pid route
+
+Lecture 92:
+1. Created /user/:uid route
+2. Talked about priority of routes (/:pid encompases /user also)
+
+Lecture 93:
+1. If no place is found, return a 404 error by setting status to 404 and then sending a message
+2. Setting up default error handler using (error, req, res, next) middleware
+
+Lecture 94:
+1. Add a models folder and add http-error model to it.
+
+Lecture 95:
+1. Adding controllers for the routes -> basically uses methods to execute api requests.
+
+Lecture 96:
+1. Created a create new place route (post route - '/')
+2. Extracting data from a post request
+3. Use of postman and uuid
+
+Lecture 97:
+1. Handling error for unregistered routes
+
+Lecture 98:
+1. Added updatePlacebyId route
+
+Lecture 99:
+1. Added deletePlacebyID route
+
+Lecture 100:
+1. Fixed getPlace route to fetch all places with from particular user
+
+Lecture 101:
+1. Setup users routes getUsers, signup and login
+
+Lecture 102:
+1. Added user input validation -> use express validator
+
+Lecture 103:
+1. Validating patch request and user routes
+
+Lecture 104:
+1. Implementing geocoding API from google
+2. Used axios package to send api request from node server
+3. Used encodeURIComponent to convert address to required format
+
+Lecture 105:
+1. wrap up
+
+Lecture 107:
+1. refresher to MongoDB and Mongoose
+
+Lecture 108:
+1. What is mongoDB
+
+Lecture 109:
+1. SQL vs noSQL
+
+Lecture 110:
+1. Connecting react to database -> not done. (Do it in backend)
+
+Lecture 111:
+1. setting up mongoDB (creating cluster, setting user and ip)
+
+Lecture 112-114:
+1. MongoDB refresher (how to add object, update object)
+
+Lecture 115:
+1. Installing moongose
+
+Lecture 116:
+1. Creating schema
+
+Lecture 117:
+1. Create a moongose.js file and add a createProduct function
+
+Lecture 118:
+1. Connect moongose to database
+
+Lecture 119:
+1. add a findProducts function
+
+Lecture 120:
+1. ID in mongoDB
+2. Access id using createdProduct.id (moongose property: string) instead of createdProduct._id (object)
+
+Lecture 121:
+1. Wrap up
+
+Lecture 123:
+1. intro
+
+Lecture 124:
+1. install moongose
+2. connect to moongose in app.js file before listening at the server
+
+Lecture 125:
+1. Add a place.js in models and placeSchema in it
+
+Lecture 126:
+1. Create a new Place using Place schema in createNewPlace route
+
+Lecture 127:
+1. get a placeById using findById method.
+2. Use of toObject to convert moongose object to javascript object
+3. Use {getter: true} in toObject to add id field to the object along with _id
+
+Lecture 128:
+1. Use of find method to get Places with a particular user
+2. Use of map to convert moongose object array to js object array
+
+Lecture 129-131:
+1. adding UpdatePlace function
+2. adding DeletePlace function
+3. how users and places are related
+
+Lecture 132:
+1. Create a user schema
+2. Create a indexing for a field using {unique: true}
+3. Use of moongose-unique-validator to verify emails (ensure email does not get created if it alreadys exists)
+
+Lecture 133:
+1. Update existingUser logic in signup function
+2. update createUser logic in signup function
+
+Lecture 134:
+1. 
 

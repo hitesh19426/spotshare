@@ -42,7 +42,7 @@ export const signupFormValidator = (values) => {
   }else if(values.password.length > 20){
     errors.password = "Must keep 20 or less characters";
   }else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/i.test(values.password)){
-    errors.password = "Minimum eight characters, at least one uppercase letter, one lowercase letter and one number:";
+    // errors.password = "Minimum eight characters, at least one uppercase letter, one lowercase letter and one number:";
   }
   
   return errors;
@@ -62,10 +62,10 @@ export const loginFormValidator = (values) => {
   
   if (!values.password) {
     errors.password = "Required";
-  }else if(values.password.length > 20){
+  }else if(values.password.length > 30){
     errors.password = "Must keep 20 or less characters";
   }else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/i.test(values.password)){
-    errors.password = "Minimum eight characters, at least one uppercase letter, one lowercase letter and one number:";
+    // errors.password = "Minimum eight characters, at least one uppercase letter, one lowercase letter and one number:";
   }
   
   return errors;
